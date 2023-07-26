@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +9,6 @@
     <title>Document</title>
 </head>
 <body>
-Vũ Linh
+<h1>Not found</h1>
 </body>
 </html>
