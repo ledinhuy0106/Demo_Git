@@ -1,5 +1,6 @@
 package controller;
 
+import filter.SessionUser;
 import model.Student;
 import service.StudentService;
 
@@ -15,20 +16,28 @@ public class StudentController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action"); // findAll, create
-        switch (action) {
-            case "findAll":
-                showAll(request, response);
-                break;
-            case "create":
-                showFormAdd(request, response);
-                break;
-            case "delete":deleteStudent(request, response);
-                break;
+        boolean check = SessionUser.checkUser(request);
+        if(check) {
+            String action = request.getParameter("action");
+            switch (action) {
+                case "findAll":
+                    showAll(request, response);
+                    break;
+                case "create":
+                    showFormAdd(request, response);
+                    break;
+                case "delete":
+                    deleteStudent(request, response);
+                    break;
 
+            }
+        } else {
+            response.sendRedirect("/user?action=login");
         }
 
     }
+
+
 
     private void deleteStudent(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));

@@ -18,6 +18,8 @@
 </head>
 <body>
 <a href="http://localhost:8080/students?action=create">Thêm mới sinh viên</a>
+<a href="http://localhost:8080/user?action=logout">Đăng xuất</a>
+
 
 <table border="1">
     <tr>
