@@ -70,11 +70,10 @@ public class StudentController extends HttpServlet {
     }
 
     public void createStudent(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         int age = Integer.parseInt(request.getParameter("age"));
         String image = request.getParameter("image");
-        Student student = new Student(id, age, name, image);
+        Student student = new Student(age, name, image);
         studentService.add(student);
         response.sendRedirect("/students?action=findAll");
     }

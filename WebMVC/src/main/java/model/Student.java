@@ -13,6 +13,13 @@ public class Student {
         this.image = image;
     }
 
+    public Student(int age, String name, String image) {
+        this.age = age;
+        this.name = name;
+        this.image = image;
+    }
+
+
     public int getId() {
         return id;
     }
